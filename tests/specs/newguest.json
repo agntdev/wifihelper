@@ -1,0 +1,20 @@
+[
+  {
+    "name": "/newguest",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Create a new guest access entry (name optional), choose delivery and expiry"
+            }
+          }
+        ],
+        "send": {
+          "text": "/newguest"
+        }
+      }
+    ]
+  }
+]

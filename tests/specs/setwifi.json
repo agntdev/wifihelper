@@ -1,0 +1,20 @@
+[
+  {
+    "name": "/setwifi",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Register or update a Wi‑Fi profile: prompts for SSID, password, security type"
+            }
+          }
+        ],
+        "send": {
+          "text": "/setwifi"
+        }
+      }
+    ]
+  }
+]

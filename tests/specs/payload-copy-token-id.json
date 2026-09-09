@@ -5,14 +5,12 @@
       {
         "expect": [
           {
-            "method": "sendMessage",
-            "payload": {
-              "text": "One-tap copy button for payloads; triggers ephemeral callback confirmation to the user"
-            }
+            "method": "answerCallbackQuery",
+            "payload": { "callback_query_id": "1", "text": "That access is no longer available." }
           }
         ],
         "send": {
-          "callback": "payload:copy:\u003ctoken_id\u003e"
+          "callback": "payload:copy:abcdef123456"
         }
       }
     ]

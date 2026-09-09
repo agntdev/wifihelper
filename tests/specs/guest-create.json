@@ -6,9 +6,7 @@
         "expect": [
           {
             "method": "sendMessage",
-            "payload": {
-              "text": "Shortcut from main menu to start /newguest flow"
-            }
+            "payload": { "text": "Owner access isn't set up yet." }
           }
         ],
         "send": {

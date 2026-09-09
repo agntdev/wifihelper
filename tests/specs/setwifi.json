@@ -7,7 +7,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Register or update a Wi‑Fi profile: prompts for SSID, password, security type"
+              "text": "Owner access isn't set up yet."
             }
           }
         ],

@@ -6,10 +6,17 @@ import type { StorageAdapter } from "grammy";
 // bot grows. Durable domain data must NOT live here — use the toolkit's
 // persistent storage (see AGENTS.md).
 export interface Session {
-  // example: step?: "awaiting_amount";
+  flow?: "wifi_ssid" | "wifi_password" | "guest_name" | "guest_note" | "guest_expiry";
+  draft?: { ssid?: string; password?: string; name?: string; note?: string; delivery?: DeliveryMode };
+  wifiData?: WifiData;
 }
 
-export type Ctx = BotContext<Session>;
+export type DeliveryMode = "qr" | "text" | "code";
+export interface WifiProfile { id: string; ssid: string; passwordEncrypted: string; security: "WPA2" | "WPA3" | "WEP" | "Open"; createdAt: string; updatedAt: string; }
+export interface GuestToken { id: string; name?: string; note?: string; profileId: string; payload: string; delivery: DeliveryMode; code: string; createdAt: string; expiresAt: string; status: "active" | "expired" | "revoked"; revokedAt?: string; }
+export interface WifiData { profiles: WifiProfile[]; tokens: GuestToken[]; tokenIds: string[]; defaultExpiryHours: number; defaultSecurity: "WPA2" | "WPA3" | "WEP" | "Open"; }
+
+export type Ctx = BotContext<Session> & { env?: object };
 
 /**
  * BuildBotOptions lets a runtime-specific ENTRY POINT (never a feature handler)

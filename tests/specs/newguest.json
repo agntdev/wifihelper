@@ -7,7 +7,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Create a new guest access entry (name optional), choose delivery and expiry"
+              "text": "Owner access isn't set up yet."
             }
           }
         ],

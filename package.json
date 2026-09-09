@@ -9,14 +9,16 @@
     "test": "vitest run",
     "gen:handlers": "node scripts/gen-handlers.mjs",
     "typecheck:worker": "tsc -p tsconfig.worker.json --noEmit",
-    "build:worker": "npm run gen:handlers && npm run typecheck:worker && esbuild src/worker.ts --bundle --format=esm --platform=neutral --conditions=worker,browser --external:node:* --outfile=dist/worker.js && node scripts/check-worker-bundle.mjs"
+    "build:worker": "npm run gen:handlers && npm run typecheck:worker && esbuild src/worker.ts --bundle --format=esm --platform=neutral --conditions=worker,browser --main-fields=browser,main --external:node:* --outfile=dist/worker.js && node scripts/check-worker-bundle.mjs"
   },
   "dependencies": {
     "grammy": "^1.30.0",
-    "ioredis": "^5.4.1"
+    "ioredis": "^5.4.1",
+    "qrcode": "^1.5.4"
   },
   "devDependencies": {
     "@types/node": "^22.0.0",
+    "@types/qrcode": "^1.5.6",
     "esbuild": "^0.24.2",
     "typescript": "^5.6.0",
     "vitest": "^2.1.0"

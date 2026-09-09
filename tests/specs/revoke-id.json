@@ -7,7 +7,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Revoke a guest access by id (confirmation required via yes/no inline buttons)"
+              "text": "Choose a guest from List guests to revoke access."
             }
           }
         ],

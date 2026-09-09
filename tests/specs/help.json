@@ -8,7 +8,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "ℹ️ Tap /start to open the menu, then pick what you want from the buttons.\n\nEverything in this bot is reachable by tapping — you don't need to remember any commands."
+              "text": "Tap the menu to save a Wi‑Fi profile, create guest access, or manage active guests."
             }
           }
         ]
@@ -20,7 +20,7 @@
     "steps": [
       {
         "send": { "callback": "menu:help" },
-        "expect": [{ "method": "editMessageText" }]
+        "expect": [{ "method": "editMessageText", "payload": { "text": "Tap the menu to save a Wi‑Fi profile, create guest access, or manage active guests." } }]
       }
     ]
   }

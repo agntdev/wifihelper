@@ -6,7 +6,7 @@
         "expect": [
           {
             "method": "answerCallbackQuery",
-            "payload": { "callback_query_id": "1", "text": "دا د مېلمه لاسرسی نور نشته." }
+            "payload": { "callback_query_id": "1", "text": "That access is no longer available." }
           }
         ],
         "send": {

@@ -7,7 +7,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "د مالک لاسرسی لا نه دی برابر شوی."
+              "text": "Owner access isn't set up yet."
             }
           }
         ],

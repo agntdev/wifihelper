@@ -6,7 +6,7 @@
         "expect": [
           {
             "method": "sendMessage",
-            "payload": { "text": "د مالک لاسرسی لا نه دی برابر شوی." }
+            "payload": { "text": "Owner access isn't set up yet." }
           }
         ],
         "send": {

@@ -8,7 +8,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "له مېنو څخه د Wi‑Fi شبکه وساتئ، مېلمنو ته لاسرسی جوړ کړئ، یا فعال لاسرسي اداره کړئ."
+              "text": "Tap the menu to save a Wi‑Fi profile, create guest access, or manage active guests."
             }
           }
         ]
@@ -20,7 +20,7 @@
     "steps": [
       {
         "send": { "callback": "menu:help" },
-        "expect": [{ "method": "editMessageText", "payload": { "text": "له مېنو څخه د Wi‑Fi شبکه وساتئ، مېلمنو ته لاسرسی جوړ کړئ، یا فعال لاسرسي اداره کړئ." } }]
+        "expect": [{ "method": "editMessageText", "payload": { "text": "Tap the menu to save a Wi‑Fi profile, create guest access, or manage active guests." } }]
       }
     ]
   }

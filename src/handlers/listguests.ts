@@ -1,15 +1,10 @@
 import { Composer } from "grammy";
-
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
-
-const composer = new Composer();
-
-composer.command("listguests", async (ctx) => {
-  await ctx.reply("List active guest accesses (paginated if \u003e 10), up to max 50 results per brief default");
-});
-
+import type { Ctx } from "../bot.js";
+import { registerMainMenuItem } from "../toolkit/index.js";
+import { clean, menuBack, owner, showGuests } from "../wifi-shared.js";
+registerMainMenuItem({ label: "List guests", data: "guests:0", order: 20 });
+const composer = new Composer<Ctx>();
+composer.command("listguests", (ctx) => showGuests(ctx));
+composer.callbackQuery(/^guests:(\d+)$/, async (ctx) => { await ctx.answerCallbackQuery(); await showGuests(ctx, Number(ctx.match[1]), true); });
+composer.callbackQuery(/^guest:([a-f0-9]{12})$/, async (ctx) => { await ctx.answerCallbackQuery(); if (!(await owner(ctx))) return; const t = clean(ctx).tokens.find((x) => x.id === ctx.match[1]); if (!t) { await ctx.editMessageText("That guest access no longer exists.", { reply_markup: menuBack() }); return; } await ctx.editMessageText(`${t.name || "Guest"}\nStatus: ${t.status}\nCreated: ${t.createdAt.replace("T", " ").slice(0, 16)} UTC\nExpires: ${t.expiresAt.replace("T", " ").slice(0, 16)} UTC`, { reply_markup: menuBack() }); });
 export default composer;

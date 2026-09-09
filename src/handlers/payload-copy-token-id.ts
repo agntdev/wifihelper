@@ -1,17 +1,13 @@
 import { Composer } from "grammy";
-
-// SCAFFOLD — generated from the bot blueprint BEFORE the agent runs.
-// Keep a LIVE registration (.command / .callbackQuery / …) so this feature is
-// never an empty stub. Replace the reply body with real logic + copy; if you
-// change the user-facing text, update tests/specs to match EXACTLY.
-// Do NOT rewrite src/bot.ts — buildBot() already auto-loads this module.
-// Menu: wire this into /start via registerMainMenuItem({ label: "Copy", data: "payload:copy:<token_id>" }) if the toolkit exposes it.
-
-const composer = new Composer();
-
-composer.callbackQuery("payload:copy:<token_id>", async (ctx) => {
-  await ctx.answerCallbackQuery();
-  await ctx.reply("One-tap copy button for payloads; triggers ephemeral callback confirmation to the user");
+import type { Ctx } from "../bot.js";
+import { clean } from "../wifi-shared.js";
+const composer = new Composer<Ctx>();
+composer.callbackQuery(/^payload:copy:([a-f0-9]{12})$/, async (ctx) => {
+  const token = clean(ctx).tokens.find((t) => t.id === ctx.match[1]);
+  if (!token || token.status !== "active") { await ctx.answerCallbackQuery({ text: "That access is no longer available.", show_alert: true }); return; }
+  // Telegram callback buttons cannot write to a device clipboard. The payload is
+  // already visible only in the message the host intentionally shared; confirm
+  // the tap without sending credentials into another chat.
+  await ctx.answerCallbackQuery({ text: "Copy the Wi‑Fi text from this message." });
 });
-
 export default composer;

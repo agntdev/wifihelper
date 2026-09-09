@@ -7,7 +7,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "List active guest accesses (paginated if \u003e 10), up to max 50 results per brief default"
+              "text": "Owner access isn't set up yet."
             }
           }
         ],

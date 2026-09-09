@@ -1,0 +1,20 @@
+[
+  {
+    "name": "/settings",
+    "steps": [
+      {
+        "expect": [
+          {
+            "method": "sendMessage",
+            "payload": {
+              "text": "Open settings to change defaults (default expiry, default security type) and manage profiles"
+            }
+          }
+        ],
+        "send": {
+          "text": "/settings"
+        }
+      }
+    ]
+  }
+]

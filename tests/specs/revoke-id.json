@@ -7,7 +7,7 @@
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Choose a guest from List guests to revoke access."
+              "text": "د لاسرسي د لغوه کولو لپاره له مېلمنو څخه یو وټاکئ."
             }
           }
         ],

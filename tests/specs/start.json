@@ -7,7 +7,7 @@
         "expect": [
           {
             "method": "sendMessage",
-            "payload": { "text": "Share guest Wi‑Fi without passing around your password." }
+            "payload": { "text": "د مېلمنو Wi‑Fi په خوندي ډول شریک کړئ، بې له دې چې پټنوم مو ووایئ." }
           }
         ]
       }

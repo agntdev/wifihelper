@@ -60,7 +60,7 @@ export async function buildBot(token: string, opts: BuildBotOptions = {}) {
   const handlers = opts.handlers ?? (await loadHandlersFromDisk());
   for (const h of handlers) bot.use(h);
 
-  bot.on("message", (ctx) => ctx.reply("Sorry, I didn't understand that. Try /help."));
+  bot.on("message", (ctx) => ctx.reply(ctx.session.wifiData && (ctx.session.wifiData as { locale?: string }).locale === "en" ? "Sorry, I didn't understand that. Try /help." : "بښنه، دا مې ونه پېژندل. له /help څخه مرسته واخلئ."));
 
   return bot;
 }
